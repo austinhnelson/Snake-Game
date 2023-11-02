@@ -1,33 +1,21 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.*;
 
-public class SnakeGame extends JPanel {
+public class SnakeGame extends JFrame {
 
-    final static int SCREEN_X = 600;
-    final static int SCREEN_Y = 600;
+    static final int WINDOW_X = 505;
+    static final int WINDOW_Y = 512;
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        // TODO Auto-generated method stub
-        super.paintComponent(g);
+    public SnakeGame() {
+        super.setTitle("Snake!");
+        super.setSize(WINDOW_X, WINDOW_Y);
+        super.setLocation(0, 0);
+        super.setResizable(true);
+        super.add(new Board());
+        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super.setVisible(true);
     }
 
-    public static void main (String[] args){
-
-        JFrame mainFrame = new JFrame();
-        SnakeObject mySnake = new SnakeObject(400, 100);
-
-        mainFrame.add(mySnake);
-
-        mainFrame.setTitle("Snake!");
-        mainFrame.setSize(SCREEN_X, SCREEN_Y);
-        mainFrame.setVisible(true);
-        mainFrame.setBackground(Color.black);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static void main(String[] args) {
+        new SnakeGame();
     }
 }
